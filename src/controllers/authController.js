@@ -15,9 +15,10 @@ const authController = {
                 return res.status(401).json({ message: 'Invalid username or password' });
             }
 
-            const token = user.generateToken();
-            res.status(200).json({ token , user: { id: user._id, username: user.username } });
+            // const token = user.generateToken();
+            res.status(200).json({  user: { id: user._id, username: user.username } });
         } catch (error) {
+            console.log("error",error)
             res.status(500).json({ message: 'Server error', error });
         }
     },
